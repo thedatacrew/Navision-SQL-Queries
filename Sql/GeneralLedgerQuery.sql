@@ -1,0 +1,20 @@
+SELECT GLE.[Entry No_] AS GeneralLedgerEntryID,
+       GLE.[G_L Account No_] AS GLAccountNumber,
+       GLA.Name AS GLAccountName,
+       GLE.[Posting Date] AS PostingDate,
+       GLE.[Document Date] AS DocuemntDate,
+       GLE.[Document Type] AS DocumentType,
+       GLE.[Document No_] AS DocumentNo,
+       GLE.Description,
+       GLE.[Debit Amount] AS DebitAmount,
+       GLE.[Credit Amount] AS CreditAmount,
+       GLE.[VAT Amount] AS VATAmount,
+       GLE.[Source Code] AS SourceCode,
+       GLE.[Gen_ Bus_ Posting Group] AS GLBusinessPostingGroup,
+       GLE.[Gen_ Prod_ Posting Group] AS GLProductionPostingGroup,
+       GLE.[Transaction No_] AS TransactionNo,
+       GLE.[VAT Bus_ Posting Group] AS VATBusinessPostingGroup,
+       GLE.[VAT Prod_ Posting Group] AS VATProductionPostingGroup,
+       GLE.[Dimension Set ID] AS DimensionSetID
+FROM dbo.[Navision Company$G_L Entry] AS GLE
+     INNER JOIN dbo.[Navision Company$G_L Account] AS GLA ON GLE.[G_L Account No_] = GLA.No_;
